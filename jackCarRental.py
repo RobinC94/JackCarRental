@@ -55,7 +55,7 @@ def policy_evaluate():
             temp_v = 0
             for m in range(0, MAX_CAR_GARAGE + 1):
                 for n in range(0, MAX_CAR_GARAGE + 1):
-                    temp_v += Tp[0, i, m] * Tp[1, j, n] * (R[0, j] + R[1, j] + discount * V[m, n])
+                    temp_v += Tp[0, i, m] * Tp[1, j, n] * (R[0, i] + R[1, j] + discount * V[m, n])
             V[i, j] = temp_v
             delta = max(delta, np.abs(v - V[i, j]))
     return delta
